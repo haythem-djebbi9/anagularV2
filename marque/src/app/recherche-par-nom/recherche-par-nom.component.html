@@ -1,0 +1,39 @@
+<div class="container">
+    <form class="form-inline">
+      <div class="form-group mx-sm-3 mb-2 mt-2">
+        <label>Nom Marque</label>
+        <input type="text" class="form-control" [(ngModel)]="nomMarque" name="nomMarque">
+        <button type="submit" (click)="rechercherMarques()" class="btn btn-primary mb-2 ml-2">Rechercher</button>
+      </div>
+    </form>
+  
+    <div class="card shadow mb-4">
+      <div class="card-body">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Nom</th>
+              <th>Chiffre d'Affaires</th>
+              <th>Date Validation</th>
+              <th>Secteur d'Activité</th>
+              <th>Slogan</th>
+              <th>Pays</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let marque of marques">
+            <tr>
+              <td>{{ marque.idMarque }}</td>
+              <td>{{ marque.nomMarque }}</td>
+              <td>{{ marque.chiffreaffaire }}</td>
+              <td>{{ marque.dateValidation | date:'dd/MM/yyyy' }}</td>
+              <td>{{ marque.secteurActivite }}</td>
+              <td>{{ marque.slogan }}</td>
+              <td>{{ marque.pays?.nomPays }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  

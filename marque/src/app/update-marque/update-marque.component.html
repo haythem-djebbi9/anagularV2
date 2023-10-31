@@ -1,0 +1,37 @@
+<div class="container">
+    <div>
+        <h2>Modifier une Marque :</h2>
+    </div>
+    <form>
+        <div class="col-sm-2 col-md-2 col-lg-2" hidden>
+            <label>ID Marque</label>
+            <input readonly type="text" [(ngModel)]="currentMarque.idMarque" name="idMarque" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Nom Marque</label>
+            <input type="text" [(ngModel)]="currentMarque.nomMarque" name="nomMarque" class="form-control">
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>Chiffre d'Affaires</label>
+            <input type="number" [(ngModel)]="currentMarque.chiffreaffaire" name="chiffreaffaire" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Date de Validation</label>
+            <input type="date" [ngModel]="currentMarque.dateValidation | date: 'yyyy-MM-dd'" 
+            (ngModelChange)="currentMarque.dateValidation = $event" name="dateValidation" class="form-control">
+        </div>
+
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Pays</label>
+            <select class="form-control form-control-lg" id="idPays" name="idPays" [(ngModel)]="updatedPaysId">
+                <option *ngFor="let pays of pays" [value]="pays.idPays">
+                    {{pays.nomPays}}
+                </option>  
+            </select>
+        </div> 
+
+        <div class="mt-2">
+            <button type="button" (click)="updateMarque()" class="btn btn-success">Modifier</button>
+        </div>
+    </form>
+</div>

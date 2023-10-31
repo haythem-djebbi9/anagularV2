@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+                <label>Pays </label>
+                <select class="form-control form-control-lg" id="idPays" name="idPays"
+                        [(ngModel)]="IdPays" (change)="onChange()">
+                    <option *ngFor="let cat of pays" [value]="cat.idPays">
+                        {{cat.nomPays}}
+                    </option>
+                </select>
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom</th>
+                        <th>Chiffre d'Affaires</th>
+                        <th>Date Validation</th>
+                        <th>Secteur d'Activité</th>
+                        <th>Slogan</th>
+                        <th>Pays</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let marque of marques">
+                        <td>{{ marque.idMarque }}</td>
+                        <td>{{ marque.nomMarque }}</td>
+                        <td>{{ marque.chiffreaffaire }}</td>
+                        <td>{{ marque.dateValidation | date:'dd/MM/yyyy' }}</td>
+                        <td>{{ marque.secteurActivite }}</td>
+                        <td>{{ marque.slogan }}</td>
+                        <td>{{ marque.pays?.nomPays }}</td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

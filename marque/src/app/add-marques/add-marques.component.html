@@ -1,0 +1,36 @@
+<div class="container">
+  <div>
+    <h2>Ajouter une Marque :</h2>
+  </div>
+  <form>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Nom de la Marque</label>
+      <input type="text" [(ngModel)]="newMarque.nomMarque" name="nomMarque" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Chiffre d'affaires</label>
+      <input type="number" [(ngModel)]="newMarque.chiffreaffaire" name="chiffreaffaire" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Date de Validation</label>
+      <input type="date" [(ngModel)]="newMarque.dateValidation" name="dateValidation" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Secteur d'Activité</label>
+      <input type="text" [(ngModel)]="newMarque.secteurActivite" name="secteurActivite" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Slogan</label>
+      <input type="text" [(ngModel)]="newMarque.slogan" name="slogan" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Choisir un Pays</label>
+      <select class="form-control form-control-lg" id="idPays" name="idPays" [(ngModel)]="newIPays">
+        <option *ngFor="let cat of pays" [value]="cat.idPays">{{cat.nomPays}}</option>
+      </select>
+    </div>
+    <div class="mt-2">
+      <button type="button" (click)="addMarque()" class="btn btn-success">Ajouter</button>
+    </div>
+  </form>
+</div>
